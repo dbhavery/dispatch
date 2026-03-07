@@ -1,0 +1,495 @@
+/**
+ * Waitlist Management Styles
+ * HQ Portal - Dark industrial theme
+ */
+
+.page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.headerRight {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms;
+  border: none;
+}
+
+.btnPrimary {
+  background: var(--gradient-red);
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btnSmall {
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+.main {
+  padding: 24px 32px;
+}
+
+/* KPI Row */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpiCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(180deg, #141414 0%, #0f0f0f 100%);
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+}
+
+.kpiIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(163, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a30000;
+}
+
+.kpiContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kpiValue {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kpiGreen {
+  color: #00cc00;
+}
+
+.kpiLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 24px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards - Dark Theme per design system (NO overlay) */
+.card {
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border: 1px solid var(--gray-700, #404040);
+  border-radius: var(--radius-card, 14px);
+  overflow: hidden;
+  box-shadow: var(--shadow-card, 0 2px 4px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.5));
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 16px 20px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.cardHeader .cardTitle {
+  padding: 0;
+  border-bottom: none;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+}
+
+.searchInput {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  color: #fff;
+  width: 200px;
+}
+
+.searchInput:focus {
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+  border-color: #a30000;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.sortSelect {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sortSelect:focus {
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+  border-color: #a30000;
+}
+
+.cardContent {
+  padding: 16px 20px;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.table td {
+  padding: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.zipCode {
+  font-family: monospace;
+  font-weight: 600;
+  color: #fff;
+}
+
+.countBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(163, 0, 0, 0.15);
+  color: #ff5500;
+  font-weight: 600;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.actionBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Region Items */
+.regionItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.regionItem:last-child {
+  margin-bottom: 0;
+}
+
+.regionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
+.regionName {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.regionCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.regionBar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.regionFill {
+  height: 100%;
+  background: var(--gradient-red);
+  border-radius: 3px;
+  transition: width 300ms ease;
+}
+
+.regionPercent {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: right;
+}
+
+/* Signup Items */
+.signupItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.signupItem:last-child {
+  border-bottom: none;
+}
+
+.signupInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signupEmail {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.signupLocation {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.signupTime {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #00cc00;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: #00cc00;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Insight Card */
+.insightCard {
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(163, 0, 0, 0.08) 0%, rgba(163, 0, 0, 0.02) 100%);
+  border: 1px solid rgba(163, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.insightIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffcc00;
+  margin-bottom: 12px;
+}
+
+.insightTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.insightText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.insightText strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rightColumn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .kpiRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rightColumn {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .kpiRow {
+    grid-template-columns: 1fr;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+}

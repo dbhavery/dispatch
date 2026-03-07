@@ -1,0 +1,41 @@
+/**
+ * Dispatch Portal HQ - Global Styles
+ * FranchiseOS Dark Theme - Network Command Center
+ *
+ * IMPORTS: dispatch-shared design system tokens and components
+ * Design System v2.0 - Authority: Design Authority
+ */
+
+/* Import authoritative design system from local shared folder */
+@import '../../shared/src/tokens/tokens.css';
+@import '../../shared/src/components/components.css';
+
+/* =============================================================================
+   PORTAL-SPECIFIC OVERRIDES
+   ============================================================================= */
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+/* DESIGN-RULES.md: Links use white (not red) - underline for affordance */
+a {
+  color: var(--dp-text-primary);
+  text-decoration: underline;
+  transition: color var(--dp-transition-fast);
+}
+
+a:hover {
+  color: var(--dp-gray-300);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+button {
+  font-family: var(--dp-font-family);
+  cursor: pointer;
+}

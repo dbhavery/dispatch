@@ -1,0 +1,587 @@
+/**
+ * Finance Page Styles
+ * Dark industrial theme following DESIGN-RULES.md
+ */
+
+/* Page Layout */
+.page {
+  min-height: 100vh;
+  background: #1c1d20;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.periodSelector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+
+.periodBtn {
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--gray-400);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.periodBtn:hover {
+  color: var(--white);
+}
+
+.periodBtn.active {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* Main Layout - 3 Column Grid */
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 360px;
+  gap: 14px;
+  padding: 14px 30px 18px;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cards - Dark Theme per design system (NO overlay) */
+.card {
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: var(--radius-card, 14px);
+  border: 1px solid var(--gray-700, #404040);
+  box-shadow: var(--shadow-card, 0 2px 4px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.5));
+  position: relative;
+  overflow: hidden;
+}
+
+.tallCard {
+  composes: card;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: var(--space-4);
+  padding-bottom: 0;
+}
+
+.cardContent {
+  padding: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.tallCard .cardContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Pills */
+.pill {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.pillGray {
+  background: linear-gradient(180deg, #35363c 0%, #1c1d20 100%);
+  color: var(--gray-300);
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  font-family: inherit;
+}
+
+.btnPrimary {
+  background: var(--gradient-red);
+  color: var(--white);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  position: relative;
+}
+
+/* NO ::before overlay per design system */
+
+.btnSecondary {
+  background: linear-gradient(180deg, #35363c 0%, #1c1d20 100%);
+  color: var(--white);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.btnOutline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--gray-300);
+}
+
+.btnOutline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btnFull {
+  width: 100%;
+}
+
+.viewAllBtn {
+  background: transparent;
+  border: none;
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.viewAllBtn:hover {
+  text-decoration: underline;
+}
+
+/* Big Metric */
+.bigMetric {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+.bigValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.trend {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.trend.up {
+  background: rgba(34, 197, 94, 0.15);
+  color: #00cc00;
+}
+
+.trend.down {
+  background: rgba(255, 85, 0, 0.15);
+  color: #ff5500;
+}
+
+.metricLabel {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-3);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  margin: var(--space-3) 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Metric Grid */
+.metricGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.metricName {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* Invoice Grid */
+.invoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.invoiceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoiceValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.invoiceValue.pending {
+  color: #ffcc00;
+}
+
+.invoiceValue.overdue {
+  color: #ff5500;
+}
+
+.invoiceValue.paid {
+  color: #00cc00;
+}
+
+.invoiceLabel {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.outstandingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outstandingLabel {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+}
+
+.outstandingValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffcc00;
+}
+
+/* Actions Column */
+.actionsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.table th {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
+.table td {
+  font-size: 0.8125rem;
+}
+
+.table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.franchiseName {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.revenueValue {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.royaltyValue {
+  color: var(--gray-400);
+}
+
+.growthValue {
+  font-weight: 600;
+}
+
+.growthValue.up {
+  color: #00cc00;
+}
+
+.growthValue.down {
+  color: #ff5500;
+}
+
+/* Transactions */
+.transactionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.transactionItem:last-child {
+  border-bottom: none;
+}
+
+.transactionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.transactionFranchise {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.transactionMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.transactionType {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gray-400);
+}
+
+.transactionType.royalty {
+  background: rgba(163, 0, 0, 0.2);
+  color: #ff5500;
+}
+
+.transactionType.brandfund {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.transactionType.techlease {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.transactionDate {
+  font-size: 0.6875rem;
+  color: var(--gray-500);
+}
+
+.transactionAmount {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Chart Placeholder / Breakdown */
+.chartPlaceholder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.breakdownItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breakdownBar {
+  height: 10px;
+  background: radial-gradient(ellipse at top, #202124 0%, #0d0e10 100%);
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) inset;
+  overflow: hidden;
+}
+
+.breakdownFill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+}
+
+.breakdownFill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+.fillGreen {
+  background: linear-gradient(90deg, #50e880 0%, #1f9945 100%);
+}
+
+.fillYellow {
+  background: linear-gradient(90deg, #ffe066 0%, #d4a020 100%);
+}
+
+.fillRed {
+  background: linear-gradient(90deg, #ff8080 0%, #c03030 100%);
+}
+
+.fillBlue {
+  background: linear-gradient(90deg, #80b8ff 0%, #3060c8 100%);
+}
+
+.breakdownLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* Responsive */
+@media (max-width: 1439px) {
+  .main {
+    grid-template-columns: 260px 1fr 300px;
+    gap: 12px;
+    padding: 14px 18px 24px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .column:first-child {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

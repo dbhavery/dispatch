@@ -1,0 +1,212 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Dispatch Design System - Core CSS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --dp-bg-page: #1e1f22;
+  --dp-card-top: #131416;
+  --dp-card-bottom: #0a0b0d;
+  --dp-red: #a30000;
+  --dp-red-light: #c51616;
+  --dp-red-dark: #750000;
+  --dp-diesel: #31b34a;
+  --dp-regular: #f2c94c;
+  --dp-premium: #d06363;
+  --dp-def: #4a7ce8;
+  --dp-text-primary: #ffffff;
+  --dp-text-secondary: rgba(255, 255, 255, 0.85);
+  --dp-text-muted: rgba(255, 255, 255, 0.6);
+  --dp-radius-card: 14px;
+  --dp-radius-pill: 999px;
+  --dp-radius-button: 8px;
+  --dp-gap: 12px;
+  --dp-shadow-card:
+    0 25px 50px rgba(0,0,0,0.8),
+    0 10px 20px rgba(0,0,0,0.6),
+    0 1px 0 rgba(255,255,255,0.06) inset;
+}
+
+/* Page - LIGHTER background so cards float on top */
+.dp-page {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 20%, #2a2b2f 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, #252628 0%, transparent 50%),
+    #1e1f22;
+  color: var(--dp-text-primary);
+  font-family: "Montserrat", system-ui, sans-serif;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Cards - DARKER than background, heavy shadow, fit content
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-card {
+  border-radius: var(--dp-radius-card);
+  background: linear-gradient(180deg, var(--dp-card-top) 0%, var(--dp-card-bottom) 100%);
+  box-shadow: var(--dp-shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: var(--dp-radius-card) var(--dp-radius-card) 0 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Glossy System - For ALL colored elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-glossy {
+  position: relative;
+  box-shadow:
+    0 8px 16px rgba(0,0,0,0.5),
+    0 1px 0 rgba(255,255,255,0.2) inset;
+  overflow: hidden;
+}
+
+.dp-glossy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.dp-fill-red { background: linear-gradient(180deg, var(--dp-red-light) 0%, var(--dp-red-dark) 100%); }
+.dp-fill-green { background: linear-gradient(180deg, #45d975 0%, #1a8f40 100%); }
+.dp-fill-yellow { background: linear-gradient(180deg, #ffe066 0%, #d4a020 100%); }
+.dp-fill-blue { background: linear-gradient(180deg, #6aa3ff 0%, #2855c0 100%); }
+.dp-fill-grey { background: linear-gradient(180deg, #35363c 0%, #1a1b1f 100%); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Buttons - Bigger, more readable
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-btn {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 18px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dp-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: inherit;
+}
+
+.dp-btn-outline {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--dp-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dp-btn-outline-red {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--dp-red);
+  color: var(--dp-red-light);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Pills - Bigger for readability
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-pill {
+  border-radius: var(--dp-radius-pill);
+  font-size: 10px;
+  padding: 4px 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dp-text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Progress Bars
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-progress-track {
+  height: 10px;
+  border-radius: var(--dp-radius-pill);
+  background: radial-gradient(ellipse at top, #252628 0%, #0d0e10 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.8) inset;
+  overflow: hidden;
+}
+
+.dp-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset;
+}
+
+.dp-progress-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+.dp-progress-fill-diesel { background: linear-gradient(90deg, #50e880 0%, #1f9945 100%); }
+.dp-progress-fill-regular { background: linear-gradient(90deg, #ffe066 0%, #d4a020 100%); }
+.dp-progress-fill-premium { background: linear-gradient(90deg, #ff8080 0%, #c03030 100%); }
+.dp-progress-fill-def { background: linear-gradient(90deg, #80b8ff 0%, #3060c8 100%); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Map Surface
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-map-surface {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(135deg, #b8bcc4 0%, #a0a4ac 100%);
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Logo
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dp-logo {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
+
+.dp-logo-red { color: var(--dp-red); }

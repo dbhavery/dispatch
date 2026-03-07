@@ -1,0 +1,930 @@
+/**
+ * Dispatch CSS Components v2.0
+ * Authoritative Design System - Component Classes
+ * Created: 2026-01-21
+ * Authority: Design Authority
+ *
+ * IMPORTANT: This file defines all component classes.
+ * Requires tokens.css to be loaded first.
+ * DO NOT modify without explicit approval.
+ */
+
+/* =============================================================================
+   IMPORTS
+   ============================================================================= */
+@import './tokens.css';
+
+/* =============================================================================
+   CARD COMPONENTS
+   ============================================================================= */
+
+/* Base Card - Satin finish with top sheen */
+.dp-card {
+  position: relative;
+  border-radius: var(--dp-radius-card);
+  background: var(--dp-gradient-card);
+  box-shadow: var(--dp-shadow-strong);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: var(--dp-spacing-lg);
+  color: var(--dp-text-primary);
+  overflow: hidden;
+}
+
+/* Card top sheen - 50% height (Source: dispatch-design-system) */
+.dp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--dp-gradient-card-sheen);
+  pointer-events: none;
+  border-radius: var(--dp-radius-card) var(--dp-radius-card) 0 0;
+}
+
+/* Clickable card hover state */
+.dp-card-clickable {
+  cursor: pointer;
+  transition: transform var(--dp-transition-fast);
+}
+
+.dp-card-clickable:hover {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+.dp-card-clickable:active {
+  transform: scale(0.99);
+}
+
+/* Feature Card */
+.dp-card-feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-md);
+  min-height: 200px;
+}
+
+.dp-card-feature:hover {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Pricing Card */
+.dp-card-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+  text-align: center;
+  padding: var(--dp-spacing-2xl);
+}
+
+.dp-card-pricing:hover {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* KPI Card */
+.dp-card-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-sm);
+  padding: var(--dp-spacing-lg);
+}
+
+.dp-card-kpi:hover {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Map Card */
+.dp-card-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-md);
+  max-width: 900px;
+}
+
+.dp-map-surface {
+  border-radius: calc(var(--dp-radius-card) - 8px);
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-color: #dcdfe4;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 480px;
+}
+
+/* =============================================================================
+   BUTTON COMPONENTS
+   ============================================================================= */
+
+/* Primary Button - Glossy Red */
+.dp-btn-primary {
+  position: relative;
+  border-radius: var(--dp-radius-button);
+  padding: 10px 22px;
+  border: none;
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-lg);
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  background: var(--dp-gradient-red);
+  box-shadow: var(--dp-shadow-button);
+  overflow: hidden;
+  transition: transform var(--dp-transition-fast),
+              box-shadow var(--dp-transition-fast);
+}
+
+/* Glossy sheen overlay */
+.dp-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0.06) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.dp-btn-primary:hover {
+  transform: translateY(-1px);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+.dp-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button - Outline */
+.dp-btn-secondary {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: var(--dp-text-secondary);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-lg);
+  font-weight: var(--dp-font-weight-semibold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: none;
+  transition: border-color var(--dp-transition-fast),
+              color var(--dp-transition-fast);
+}
+
+.dp-btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.40);
+  color: var(--dp-text-primary);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Icon Button */
+.dp-btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--dp-radius-md);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--dp-text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dp-transition-fast),
+              border-color var(--dp-transition-fast);
+}
+
+.dp-btn-icon:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* =============================================================================
+   GLOSSY UTILITY CLASS
+   For buttons, pills, progress bars, indicators
+   ============================================================================= */
+
+.dp-glossy {
+  position: relative;
+  border-radius: inherit;
+  box-shadow: var(--dp-shadow-button);
+  overflow: hidden;
+}
+
+.dp-glossy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0.06) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* =============================================================================
+   COLOR FILL CLASSES (use with .dp-glossy)
+   ============================================================================= */
+
+.dp-fill-red {
+  background: var(--dp-gradient-red);
+}
+
+.dp-fill-green {
+  background: var(--dp-gradient-green);
+}
+
+.dp-fill-yellow {
+  background: var(--dp-gradient-yellow);
+}
+
+.dp-fill-blue {
+  background: var(--dp-gradient-blue);
+}
+
+.dp-fill-grey {
+  background: var(--dp-gradient-grey);
+}
+
+/* =============================================================================
+   PILL / BADGE COMPONENTS
+   ============================================================================= */
+
+.dp-pill {
+  border-radius: var(--dp-radius-pill);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-xs);
+  padding: 4px 10px;
+  font-weight: var(--dp-font-weight-semibold);
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--dp-text-primary);
+}
+
+/* Glossy Pill - gradient with sheen overlay, NO glow */
+.dp-pill-glossy {
+  position: relative;
+  border-radius: var(--dp-radius-pill);
+  padding: 6px 14px;
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-xs);
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-primary);
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+/* Sheen overlay - NO glow box-shadow */
+.dp-pill-glossy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.08) 35%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.dp-pill-glossy:hover {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Pill color variants */
+.dp-pill-red {
+  background: var(--dp-gradient-red);
+}
+
+.dp-pill-green {
+  background: var(--dp-gradient-green);
+}
+
+.dp-pill-yellow {
+  background: var(--dp-gradient-yellow);
+  color: var(--dp-black);
+}
+
+.dp-pill-blue {
+  background: var(--dp-gradient-blue);
+}
+
+.dp-pill-grey {
+  background: var(--dp-gradient-grey);
+}
+
+/* Status Pills */
+.dp-pill-success {
+  background: linear-gradient(160deg, #2ed573, #22c55e, #1da050);
+}
+
+.dp-pill-warning {
+  background: linear-gradient(160deg, #ffd32a, #eab308, #c99700);
+  color: var(--dp-black);
+}
+
+.dp-pill-error {
+  background: linear-gradient(160deg, #ff6b6b, #ef4444, #dc2626);
+}
+
+.dp-pill-info {
+  background: linear-gradient(160deg, #5dade2, #3b82f6, #2563eb);
+}
+
+/* =============================================================================
+   PROGRESS BAR COMPONENTS
+   ============================================================================= */
+
+.dp-progress-track {
+  height: 12px;
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-gradient-track);
+  box-shadow: var(--dp-shadow-inset);
+  overflow: hidden;
+}
+
+.dp-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glossy progress fill sheen */
+.dp-progress-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0.06) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* =============================================================================
+   FORM COMPONENTS
+   ============================================================================= */
+
+/* Input Field */
+.dp-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--dp-radius-md);
+  border: 1px solid var(--dp-gray-700);
+  background: var(--dp-gray-900);
+  color: var(--dp-text-primary);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-base);
+  transition: border-color var(--dp-transition-fast),
+              box-shadow var(--dp-transition-fast);
+}
+
+.dp-input:focus {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+  border-color: var(--dp-red);
+}
+
+.dp-input::placeholder {
+  color: var(--dp-gray-500);
+}
+
+/* Recessed Input (deep inset styling) */
+.dp-input-recessed {
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 40%, #1a1a1a 100%);
+  border: 1px solid var(--dp-gray-800);
+  box-shadow:
+    inset 0 10px 24px rgba(0, 0, 0, 0.95),
+    inset 0 6px 12px rgba(0, 0, 0, 0.8),
+    inset 0 3px 6px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Checkbox */
+.dp-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--dp-radius-sm);
+  border: 1px solid var(--dp-gray-600);
+  background: var(--dp-gray-900);
+  cursor: pointer;
+  appearance: none;
+  transition: background var(--dp-transition-fast),
+              border-color var(--dp-transition-fast);
+}
+
+.dp-checkbox:checked {
+  background: var(--dp-gradient-red);
+  border-color: var(--dp-red);
+}
+
+.dp-checkbox:focus {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+}
+
+/* Radio */
+.dp-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--dp-radius-pill);
+  border: 1px solid var(--dp-gray-600);
+  background: var(--dp-gray-900);
+  cursor: pointer;
+  appearance: none;
+  transition: background var(--dp-transition-fast),
+              border-color var(--dp-transition-fast);
+}
+
+.dp-radio:checked {
+  background: var(--dp-gradient-red);
+  border-color: var(--dp-red);
+}
+
+.dp-radio:focus {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+}
+
+/* Toggle Switch */
+.dp-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-gray-700);
+  cursor: pointer;
+  position: relative;
+  transition: background var(--dp-transition-base);
+}
+
+.dp-toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-white);
+  transition: transform var(--dp-transition-base);
+}
+
+.dp-toggle:checked {
+  background: var(--dp-gradient-red);
+}
+
+.dp-toggle:checked::after {
+  transform: translateX(20px);
+}
+
+.dp-toggle:focus {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+}
+
+/* =============================================================================
+   LIST COMPONENTS
+   ============================================================================= */
+
+/* Leaderboard Item */
+.dp-leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dp-spacing-md);
+  padding: var(--dp-spacing-md);
+  border-radius: var(--dp-radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background var(--dp-transition-fast);
+}
+
+.dp-leaderboard-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Customer List Item */
+.dp-customer-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dp-spacing-md);
+  padding: var(--dp-spacing-md);
+  border-radius: var(--dp-radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background var(--dp-transition-fast);
+}
+
+.dp-customer-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* Vehicle Grid Item */
+.dp-vehicle-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-sm);
+  padding: var(--dp-spacing-md);
+  border-radius: var(--dp-radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background var(--dp-transition-fast);
+}
+
+.dp-vehicle-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* =============================================================================
+   SCROLLBAR COMPONENTS (with recessed styling)
+   ============================================================================= */
+
+/* Dark Theme Scrollable Container */
+.dp-scrollable-dark {
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 40%, #1a1a1a 100%);
+  border: 1px solid var(--dp-gray-800);
+  box-shadow:
+    inset 0 10px 24px rgba(0, 0, 0, 0.95),
+    inset 0 6px 12px rgba(0, 0, 0, 0.8),
+    inset 0 3px 6px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: var(--dp-radius-md);
+  overflow-y: auto;
+}
+
+.dp-scrollable-dark::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dp-scrollable-dark::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--dp-radius-pill);
+  margin: 4px;
+}
+
+.dp-scrollable-dark::-webkit-scrollbar-thumb {
+  background: var(--dp-gradient-red);
+  border-radius: var(--dp-radius-pill);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dp-scrollable-dark::-webkit-scrollbar-thumb:hover {
+  background: var(--dp-red-light);
+}
+
+/* Light Theme Scrollable Container */
+.dp-scrollable-light {
+  background: linear-gradient(180deg, #d9d9d9 0%, #e8e8e8 40%, #f0f0f0 100%);
+  border: 1px solid var(--dp-gray-300);
+  box-shadow:
+    inset 0 10px 24px rgba(0, 0, 0, 0.12),
+    inset 0 6px 12px rgba(0, 0, 0, 0.08),
+    inset 0 3px 6px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: var(--dp-radius-md);
+  overflow-y: auto;
+}
+
+.dp-scrollable-light::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dp-scrollable-light::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: var(--dp-radius-pill);
+  margin: 4px;
+}
+
+.dp-scrollable-light::-webkit-scrollbar-thumb {
+  background: var(--dp-gradient-red);
+  border-radius: var(--dp-radius-pill);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dp-scrollable-light::-webkit-scrollbar-thumb:hover {
+  background: var(--dp-red-light);
+}
+
+/* =============================================================================
+   DIVIDER COMPONENTS
+   ============================================================================= */
+
+.dp-divider {
+  height: 1px;
+  margin: var(--dp-spacing-md) 0;
+  background: var(--dp-gradient-divider);
+}
+
+.dp-divider-vertical {
+  width: 1px;
+  height: 100%;
+  background: var(--dp-gradient-divider);
+}
+
+/* =============================================================================
+   MODAL COMPONENTS
+   ============================================================================= */
+
+.dp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: var(--dp-z-modal-backdrop);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dp-transition-base), visibility var(--dp-transition-base);
+}
+
+.dp-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dp-modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: var(--dp-z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dp-transition-base),
+              visibility var(--dp-transition-base),
+              transform var(--dp-transition-base);
+}
+
+.dp-modal-content.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.dp-modal-close {
+  position: absolute;
+  top: var(--dp-spacing-md);
+  right: var(--dp-spacing-md);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--dp-radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--dp-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dp-transition-fast);
+}
+
+.dp-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* =============================================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================================= */
+
+.dp-text-heading {
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-primary);
+}
+
+.dp-text-subheading {
+  font-size: var(--dp-font-size-base);
+  font-weight: var(--dp-font-weight-medium);
+  color: var(--dp-text-secondary);
+}
+
+.dp-text-body {
+  font-size: var(--dp-font-size-base);
+  font-weight: var(--dp-font-weight-regular);
+  color: var(--dp-text-secondary);
+}
+
+.dp-text-muted {
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-regular);
+  color: var(--dp-text-muted);
+}
+
+.dp-text-large {
+  font-size: var(--dp-font-size-4xl);
+  font-weight: var(--dp-font-weight-bold);
+  color: var(--dp-text-primary);
+}
+
+/* =============================================================================
+   LAYOUT UTILITIES
+   ============================================================================= */
+
+.dp-page {
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--dp-spacing-lg) var(--dp-spacing-xl) var(--dp-spacing-xl);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+}
+
+.dp-main-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px minmax(520px, 1fr) 320px;
+  column-gap: var(--dp-spacing-lg);
+  row-gap: var(--dp-spacing-lg);
+  align-items: start;
+}
+
+.dp-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+}
+
+/* Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+  .dp-main-grid {
+    grid-template-columns: 320px minmax(600px, 1fr) 360px;
+  }
+}
+
+/* Tablet Landscape (1024px - 1439px) */
+@media (max-width: 1439px) {
+  .dp-main-grid {
+    grid-template-columns: 240px minmax(400px, 1fr) 280px;
+    column-gap: var(--dp-spacing-md);
+    row-gap: var(--dp-spacing-md);
+  }
+
+  .dp-page {
+    padding: var(--dp-spacing-md) var(--dp-spacing-lg);
+  }
+}
+
+/* Tablet Portrait / Small screens (768px - 1023px) */
+@media (max-width: 1023px) {
+  .dp-main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dp-column:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 767px) {
+  .dp-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-page {
+    padding: var(--dp-spacing-sm) var(--dp-spacing-md);
+  }
+}
+
+/* =============================================================================
+   THEME TOGGLE
+   ============================================================================= */
+
+.dp-theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--dp-radius-md);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--dp-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dp-transition-fast),
+              border-color var(--dp-transition-fast);
+}
+
+.dp-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* =============================================================================
+   ACCESSIBILITY UTILITIES
+   ============================================================================= */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+}
+
+/* =============================================================================
+   FUEL GAUGE COMPONENTS (for tank visualization)
+   ============================================================================= */
+
+.dp-fuel-gauge {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: var(--dp-radius-card);
+  background: var(--dp-gradient-track);
+  box-shadow: var(--dp-shadow-inset);
+  overflow: hidden;
+}
+
+.dp-fuel-level {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 var(--dp-radius-card) var(--dp-radius-card);
+  overflow: hidden;
+}
+
+.dp-fuel-level::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0.06) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Fuel type color classes */
+.dp-fuel-diesel {
+  background: var(--dp-gradient-green);
+}
+
+.dp-fuel-regular {
+  background: var(--dp-gradient-yellow);
+}
+
+.dp-fuel-premium {
+  background: linear-gradient(160deg, #b86b6e, #965154, #7a4143);
+}
+
+.dp-fuel-def {
+  background: var(--dp-gradient-blue);
+}

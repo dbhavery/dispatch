@@ -1,0 +1,267 @@
+/* FuelGauge Component Styles - Exact reproduction from original */
+
+.gaugeWrapper {
+  position: relative;
+  width: 360px;
+  height: 440px;
+  z-index: 1;
+}
+
+/* Tick marks */
+.tickMark {
+  position: absolute;
+  left: 50%;
+  bottom: 85px;
+  width: 5px;
+  height: 190px;
+  margin-left: -2.5px;
+  transform-origin: center bottom;
+  pointer-events: none;
+}
+
+.tickMark span {
+  display: block;
+  width: 5px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+
+  /* Dark theme default */
+  background: linear-gradient(135deg, #fff 0%, #ccc 50%, #999 100%);
+  box-shadow: 8px 14px 28px rgba(0, 0, 0, 0.9), 4px 7px 14px rgba(0, 0, 0, 0.6);
+}
+
+.tickSmall span {
+  width: 3px;
+  height: 16px;
+}
+
+.tickRed span {
+  background: linear-gradient(135deg, #b81c1c 0%, #a30000 50%, #8a0000 100%);
+  box-shadow: 8px 14px 28px rgba(0, 0, 0, 0.9), 4px 7px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* Light theme tick marks */
+.lightTheme .tickMark span {
+  background: linear-gradient(135deg, #666 0%, #444 50%, #333 100%);
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.5), 3px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lightTheme .tickRed span {
+  background: linear-gradient(135deg, #b81c1c 0%, #a30000 50%, #8a0000 100%);
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.5), 3px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* E and F labels */
+.gaugeLabel {
+  position: absolute;
+  font-family: var(--font-family);
+  font-size: 30px;
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-400);
+
+  /* Dark theme default */
+  text-shadow: 3px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.gaugeE {
+  left: 5px;
+  bottom: 110px;
+}
+
+.gaugeF {
+  right: 5px;
+  bottom: 110px;
+}
+
+.lightTheme .gaugeLabel {
+  color: var(--gray-600);
+  text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Needle - glossy red cylinder with chrome highlights */
+.needle {
+  position: absolute;
+  left: 50%;
+  bottom: 85px;
+  width: 7px;
+  height: 190px;
+  margin-left: -4px;
+  transform-origin: center bottom;
+  border-radius: 4px 4px 2px 2px;
+
+  /* Glossy metallic needle - uses chrome highlights, not bright reds */
+  background: linear-gradient(
+    90deg,
+    #d4d4d4 0%,
+    #c04040 15%,
+    #b81c1c 40%,
+    #a30000 60%,
+    #8a0000 80%,
+    #5a0000 100%
+  );
+  z-index: 10;
+
+  /* Dark theme default - drop-shadow follows rotation */
+  filter: drop-shadow(5px 8px 12px rgba(0, 0, 0, 0.85))
+    drop-shadow(3px 4px 6px rgba(0, 0, 0, 0.6));
+}
+
+.lightTheme .needle {
+  filter: drop-shadow(4px 6px 8px rgba(0, 0, 0, 0.45))
+    drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Center pivot - 3D dome */
+.pivot {
+  position: absolute;
+  left: 50%;
+  bottom: 85px;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-bottom: -15px;
+  border-radius: 50%;
+  z-index: 10;
+
+  /* Dark theme default */
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 30% 25%,
+      rgba(200, 200, 200, 0.8) 0%,
+      transparent 55%
+    ),
+    radial-gradient(circle, #444 0%, #333 35%, #1a1a1a 70%, #000 100%);
+  box-shadow:
+    10px 20px 40px rgba(0, 0, 0, 0.95),
+    5px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.lightTheme .pivot {
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 30% 25%,
+      rgba(255, 255, 255, 0.95) 0%,
+      transparent 55%
+    ),
+    radial-gradient(circle, #555 0%, #444 35%, #333 70%, #222 100%);
+  box-shadow:
+    8px 16px 30px rgba(0, 0, 0, 0.5),
+    4px 8px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .gaugeWrapper {
+    width: 300px;
+    height: 370px;
+  }
+
+  .tickMark {
+    height: 160px;
+    bottom: 70px;
+  }
+
+  .tickMark span {
+    height: 18px;
+  }
+
+  .tickSmall span {
+    height: 11px;
+  }
+
+  .gaugeLabel {
+    font-size: 24px;
+    bottom: 90px;
+  }
+
+  .needle {
+    height: 160px;
+    bottom: 70px;
+  }
+
+  .pivot {
+    width: 26px;
+    height: 26px;
+    margin-left: -13px;
+    margin-bottom: -13px;
+    bottom: 70px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .gaugeWrapper {
+    width: 260px;
+    height: 320px;
+  }
+
+  .tickMark {
+    height: 140px;
+    bottom: 60px;
+  }
+
+  .tickMark span {
+    height: 16px;
+  }
+
+  .tickSmall span {
+    height: 10px;
+  }
+
+  .gaugeLabel {
+    font-size: 20px;
+    bottom: 80px;
+  }
+
+  .needle {
+    height: 140px;
+    bottom: 60px;
+  }
+
+  .pivot {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-bottom: -12px;
+    bottom: 60px;
+  }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 360px) {
+  .gaugeWrapper {
+    width: 220px;
+    height: 280px;
+  }
+
+  .tickMark {
+    height: 120px;
+    bottom: 50px;
+  }
+
+  .tickMark span {
+    height: 12px;
+  }
+
+  .tickSmall span {
+    height: 8px;
+  }
+
+  .gaugeLabel {
+    font-size: 16px;
+    bottom: 65px;
+  }
+
+  .needle {
+    height: 120px;
+    bottom: 50px;
+  }
+
+  .pivot {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    bottom: 50px;
+  }
+}

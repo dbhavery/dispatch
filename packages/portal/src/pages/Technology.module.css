@@ -1,0 +1,527 @@
+/**
+ * Technology Page Styles
+ * Dark industrial theme following DESIGN-RULES.md
+ */
+
+/* Page Layout */
+.page {
+  min-height: 100vh;
+  background: #1c1d20;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.tabSelector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+
+.tabBtn {
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--gray-400);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.tabBtn:hover {
+  color: var(--white);
+}
+
+.tabBtn.active {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* Main Layout - 3 Column Grid */
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  max-width: 1800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.leftColumn,
+.centerColumn,
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(to bottom, #181818, #141414);
+  border-radius: 14px;
+  padding: var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.cardTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: none;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-4) 0;
+}
+
+/* System Health */
+.healthScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4) 0;
+}
+
+.healthRing {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#00DC82 calc(var(--score) * 1%), rgba(255, 255, 255, 0.1) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.healthRing::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #181818;
+}
+
+.healthValue {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.healthLabel {
+  margin-top: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.healthMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.healthMetric {
+  text-align: center;
+}
+
+.metricValue {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.metricLabel {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+/* Metrics List */
+.metricsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.metricItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+}
+
+.metricIcon {
+  font-size: 1.25rem;
+}
+
+.metricInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricItemValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.metricItemLabel {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+/* Tech Stack */
+.stackList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stackCategory {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stackCategoryName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-300);
+}
+
+.stackItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.stackItem {
+  font-size: 0.625rem;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-badge);
+  color: var(--gray-400);
+}
+
+/* Infrastructure List */
+.infrastructureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.serviceItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+}
+
+.serviceStatus {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.serviceInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.serviceRegion {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+.serviceUptime {
+  text-align: right;
+}
+
+.uptimeValue {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00DC82;
+}
+
+.uptimeLabel {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+/* Deployments */
+.deploymentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.deploymentItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+}
+
+.deploymentVersion {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.versionBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-badge);
+}
+
+.deploymentEnv {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+.deploymentTime {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.deploymentStatus {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Initiatives */
+.initiativesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.initiativeItem {
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+}
+
+.initiativeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.initiativeName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.initiativeStatus {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.initiativeProgress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.progressBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+.progressValue {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-300);
+  min-width: 40px;
+  text-align: right;
+}
+
+.initiativeEta {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+  margin-top: var(--space-2);
+}
+
+/* Actions */
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.actionBtn {
+  width: 100%;
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--gray-300);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* Alerts */
+.alertsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.alertItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+}
+
+.alertDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+.alertInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.alertTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.alertDesc {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .main {
+    grid-template-columns: 280px 1fr 280px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: var(--space-4);
+  }
+
+  .leftColumn,
+  .rightColumn {
+    grid-template-columns: 1fr;
+  }
+}

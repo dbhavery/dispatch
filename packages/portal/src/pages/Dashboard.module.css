@@ -1,0 +1,1756 @@
+/**
+ * HQ Portal - Network Command Center
+ * Fresh CSS following DESIGN-RULES.md v2.0
+ * Premium industrial control interface
+ * MATCHES PROTOTYPE STYLING EXACTLY
+ */
+
+/* =============================================================================
+   PAGE LAYOUT - Satin Background
+   ============================================================================= */
+
+.page {
+  height: 100%;
+  overflow: hidden; /* No scroll on desktop */
+  background: #1c1d20;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #a30000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Shimmer animation (Source: dispatch-design-system) */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* =============================================================================
+   HEADER (legacy - kept for reference)
+   ============================================================================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.logoSt {
+  color: #ffffff;
+}
+
+.logoA {
+  position: relative;
+  color: #ffffff;
+}
+
+/* Macron over "a" */
+.logoA::after {
+  content: '';
+  position: absolute;
+  top: 0.1em;
+  left: 15%;
+  width: 70%;
+  height: 0.1em;
+  background: #a30000;
+  border-radius: 2px;
+}
+
+.logoFull {
+  color: #a30000;
+}
+
+.portalBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 4px 10px;
+  background: linear-gradient(to bottom, #222326, #151519);
+  border-radius: 50px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.headerStats {
+  display: flex;
+  gap: 30px;
+}
+
+.headerStat {
+  text-align: center;
+}
+
+.headerStatValue {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.headerStatLabel {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.userInfo {
+  text-align: right;
+  padding-left: 30px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.userRole {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =============================================================================
+   MAIN GRID - 3 Column Layout
+   ============================================================================= */
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 360px;
+  gap: 14px;
+  padding: 14px 30px 18px;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 0; /* Allow flex child to shrink */
+  overflow: hidden;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Source: dispatch-design-system */
+  min-height: 0; /* Allow flex children to shrink */
+  overflow: hidden;
+}
+
+/* =============================================================================
+   CARD BASE - Per dispatch-design-system (NO overlay)
+   ============================================================================= */
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border: 1px solid var(--gray-700, #404040);
+  border-radius: var(--radius-card, 14px);
+  box-shadow: var(--shadow-card, 0 2px 4px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.5));
+  padding: 14px;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Clickable card interaction - per design system */
+.clickableCard {
+  cursor: pointer;
+  transition: transform var(--transition-base, 200ms ease), box-shadow var(--transition-base, 200ms ease), border-color var(--transition-base, 200ms ease);
+}
+
+.clickableCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover, 0 4px 8px rgba(0,0,0,0.7), 0 16px 32px rgba(0,0,0,0.6));
+  border-color: var(--accent, #a30000);
+}
+
+.clickableCard:active {
+  transform: translateY(0);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cardHeader .cardTitle {
+  margin-bottom: 0;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================================================================
+   DIVIDER
+   ============================================================================= */
+
+.divider {
+  height: 1px;
+  margin: 14px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+}
+
+/* =============================================================================
+   BUTTONS - Glossy (from prototype)
+   ============================================================================= */
+
+.btn {
+  position: relative;
+  height: 44px;
+  padding: 0 30px;
+  border-radius: var(--radius-button, 8px);
+  border: none;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-base, 200ms) ease;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn:focus-visible {
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Primary Button (Red Glossy) - per design system */
+.btnPrimary {
+  background: var(--gradient-red);
+  box-shadow: var(--shadow-card);
+}
+
+/* Shimmer effect (Source: dispatch-design-system) */
+.btnPrimary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.btnPrimary:hover::after {
+  animation: shimmer 1.2s infinite;
+}
+
+/* Secondary Button (Gray) - per design system */
+.btnSecondary {
+  background: var(--gray-800, #262626);
+  border: 1px solid var(--gray-700, #404040);
+  box-shadow: var(--shadow-card);
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent, #a30000);
+}
+
+/* Outline Button */
+.btnOutline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: none;
+}
+
+.btnOutline:hover {
+  border-color: rgba(255, 255, 255, 0.40);
+  color: #ffffff;
+}
+
+.btnFull {
+  width: 100%;
+}
+
+.actionsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =============================================================================
+   PILLS / BADGES - Glossy Filled (from prototype)
+   ============================================================================= */
+
+/* Pills/Badges - gray bg with colored 2px border per design system */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: linear-gradient(180deg, #262626 0%, #1a1a1a 100%);
+  border: 2px solid var(--gray-500, #737373);
+  border-radius: var(--radius-full, 50px);
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all var(--transition-fast, 100ms);
+}
+
+.pill:hover {
+  border-color: var(--accent, #a30000);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.pillRed {
+  border-color: var(--red, #a30000);
+}
+
+.pillGreen {
+  border-color: var(--status-success, #00cc00);
+}
+
+.pillYellow {
+  border-color: var(--status-warning, #ffcc00);
+}
+
+.pillBlue {
+  border-color: var(--status-info, #0066ff);
+}
+
+.pillGray {
+  border-color: var(--gray-500, #737373);
+}
+
+/* =============================================================================
+   PROGRESS BARS (from prototype)
+   ============================================================================= */
+
+.progressTrack {
+  height: 12px;
+  border-radius: 50px;
+  background: radial-gradient(ellipse at top, #202124 0%, #0d0e10 100%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.06) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.progressGreen {
+  background: linear-gradient(160deg, #00cc00, #00aa00, #008800); /* Success green #00cc00 */
+}
+
+.progressYellow {
+  background: linear-gradient(to bottom, #d4a000, #a67c00);
+}
+
+.progressRed {
+  background: var(--gradient-red);
+}
+
+.progressBlue {
+  background: linear-gradient(180deg, #6aa3ff 0%, #2855c0 100%);
+}
+
+/* =============================================================================
+   KPI ROW (from prototype)
+   ============================================================================= */
+
+.kpiRow {
+  display: flex;
+  gap: 14px;
+}
+
+.kpiItem {
+  flex: 1;
+}
+
+.kpiValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpiLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+/* =============================================================================
+   MAP CARD (from prototype)
+   ============================================================================= */
+
+.mapCard {
+  composes: card;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  transition: all 300ms ease;
+}
+
+/* Fullscreen map overlay - uses higher specificity instead of !important */
+.mapFullscreen.mapFullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  aspect-ratio: unset;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Fullscreen toggle button */
+.fullscreenBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #222326, #151519);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: all 100ms ease;
+}
+
+.fullscreenBtn:hover {
+  background: linear-gradient(to bottom, #3a3b3f, #252529);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.fullscreenBtn:active {
+  transform: scale(0.95);
+}
+
+.mapSurface {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-color: #dcdfe4;
+  position: relative;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.leafletPopup {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Leaflet zoom controls - match dark premium theme */
+.mapContainer :global(.leaflet-control-zoom) {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.mapContainer :global(.leaflet-control-zoom a) {
+  background: linear-gradient(to bottom, #222326, #151519);
+  color: #ffffff;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mapContainer :global(.leaflet-control-zoom a:last-child) {
+  border-bottom: none;
+}
+
+.mapContainer :global(.leaflet-control-zoom a:hover) {
+  background: linear-gradient(to bottom, #3a3b3f, #252529);
+  color: #ffffff;
+}
+
+/* Leaflet layer control - match dark premium theme */
+.mapContainer :global(.leaflet-control-layers) {
+  background: linear-gradient(to bottom, #222326, #151519);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+.mapContainer :global(.leaflet-control-layers-toggle) {
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+}
+
+.mapContainer :global(.leaflet-control-layers-expanded) {
+  padding: 10px 14px;
+}
+
+.mapContainer :global(.leaflet-control-layers label) {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mapContainer :global(.leaflet-control-layers-separator) {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Ensure map stays behind overlay */
+.mapContainer :global(.leaflet-pane) {
+  z-index: 1;
+}
+
+.mapContainer :global(.leaflet-control-container) {
+  z-index: 2;
+}
+
+.mapOverlay {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 10;
+  /* Uses card colors (Source: dispatch-design-system) */
+  background: linear-gradient(180deg, rgba(19, 20, 22, 0.95), rgba(10, 11, 13, 0.95));
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mapOverlayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mapTitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.mapSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.mapActions {
+  display: flex;
+  gap: 10px;
+}
+
+.mapPin {
+  position: absolute;
+  width: 24px;
+  height: 32px;
+  transform: translate(-50%, -100%);
+}
+
+.mapPinInner {
+  width: 24px;
+  height: 24px;
+  background: var(--gradient-red);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.mapPinDot {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* =============================================================================
+   CENTER GRID - 2x2 Layout (from prototype)
+   ============================================================================= */
+
+.centerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.centerGrid > .card {
+  overflow: hidden;
+}
+
+/* =============================================================================
+   LEADERBOARD (from prototype)
+   ============================================================================= */
+
+.leaderItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.leaderItem + .leaderItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.leaderRank {
+  width: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.leaderAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.leaderName {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.leaderScore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-right: 4px;
+}
+
+.leaderTrend {
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.leaderTrend.up {
+  color: #00cc00;
+}
+
+.leaderTrend.down {
+  color: #ff5500;
+}
+
+.leaderTrend.stable {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* =============================================================================
+   LIST ITEMS (from prototype)
+   ============================================================================= */
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.listItem + .listItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.listIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #222326, #151519);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.listContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.listTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.listSubtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.listValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* =============================================================================
+   ALERT ITEMS (from prototype)
+   ============================================================================= */
+
+.alertItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.alertItem + .alertItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.alertDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0066ff;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.alertDotCritical {
+  background: #ff5500;
+}
+
+.alertDotWarning {
+  background: #ffcc00;
+}
+
+.alertDotInfo {
+  background: #0066ff;
+}
+
+.alertContent {
+  flex: 1;
+}
+
+.alertText {
+  font-size: 13px;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.alertTime {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* =============================================================================
+   TERRITORY OVERVIEW
+   ============================================================================= */
+
+.territoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.territoryStat {
+  padding: 10px;
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: 10px;
+  border: 1px solid var(--gray-700, #404040);
+}
+
+.territoryValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.territoryLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.territoryMap {
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.miniMapContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* =============================================================================
+   PIPELINE
+   ============================================================================= */
+
+.pipelineItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.pipelineItem + .pipelineItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.pipelineInfo {
+  flex: 1;
+}
+
+.pipelineName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.pipelineStage {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pipelineDays {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =============================================================================
+   REGIONAL REVENUE
+   ============================================================================= */
+
+.regionItem {
+  margin-bottom: 10px;
+}
+
+.regionItem:last-child {
+  margin-bottom: 0;
+}
+
+.regionHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.regionName {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.regionValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =============================================================================
+   COMPLIANCE
+   ============================================================================= */
+
+.complianceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.complianceStat {
+  padding: 10px;
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: 10px;
+  border: 1px solid var(--gray-700, #404040);
+}
+
+.complianceValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.complianceValue.warning {
+  color: #ffcc00;
+}
+
+.complianceValue.success {
+  color: #00cc00;
+}
+
+.complianceLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.complianceBar {
+  margin-top: 10px;
+}
+
+.compliancePercent {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  margin-top: 6px;
+}
+
+/* =============================================================================
+   ACTIVITY GRID
+   ============================================================================= */
+
+.activityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.activityItem {
+  padding: 10px;
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: 10px;
+  border: 1px solid var(--gray-700, #404040);
+  text-align: center;
+}
+
+.activityValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.activityLabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* =============================================================================
+   CONTACTS
+   ============================================================================= */
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.contactItem + .contactItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.contactDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contactDot.online {
+  background: #00cc00;
+}
+
+.contactDot.offline {
+  background: #ff5500;
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactDept {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.contactName {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contactPhone {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =============================================================================
+   HEALTH RING
+   ============================================================================= */
+
+.healthDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.healthRing {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.healthSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.healthTrack {
+  fill: none;
+  stroke: #1e1f23;
+  stroke-width: 10;
+}
+
+.healthProgress {
+  fill: none;
+  stroke: #00cc00; /* Brand green */
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.healthValue {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.healthNumber {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.healthUnit {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.healthStatus {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =============================================================================
+   FLEET SUMMARY
+   ============================================================================= */
+
+.fleetGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fleetItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: 10px;
+  border: 1px solid var(--gray-700, #404040);
+}
+
+.fleetDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.fleetDot.active {
+  background: #00cc00;
+}
+
+.fleetDot.idle {
+  background: #ffcc00;
+}
+
+.fleetDot.maintenance {
+  background: #0066ff;
+}
+
+.fleetDot.offline {
+  background: #ff5500;
+}
+
+.fleetLabel {
+  flex: 1;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fleetValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =============================================================================
+   EXPANDABLE CARDS (from prototype)
+   ============================================================================= */
+
+.expandCard {
+  composes: card;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandCard .cardContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tallCard {
+  composes: card;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tallCard .cardContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS (from prototype)
+   ============================================================================= */
+
+/* Ultra-wide (1920px+) */
+@media (min-width: 1920px) {
+  .main {
+    grid-template-columns: 300px 1fr 340px;
+    gap: 14px;
+    padding: 14px 30px 20px;
+  }
+
+  .header {
+    padding: 12px 30px;
+  }
+
+  .column {
+    gap: 10px;
+  }
+}
+
+/* Tablet Landscape (1024-1439px) */
+@media (max-width: 1439px) {
+  .main {
+    grid-template-columns: 260px 1fr 300px;
+    gap: 12px;
+    padding: 14px 18px 24px;
+  }
+
+  .centerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpiValue {
+    font-size: 26px;
+  }
+
+  .headerStats {
+    gap: 20px;
+  }
+
+  .headerStatValue {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Portrait (768-1023px) */
+@media (max-width: 1023px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    padding: 14px 18px 30px;
+    gap: 12px;
+  }
+
+  /* Hide left column on tablet */
+  .column:first-child {
+    display: none;
+  }
+
+  .centerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .headerStats {
+    display: none;
+  }
+}
+
+/* Mobile Landscape (480-767px) */
+@media (max-width: 767px) {
+  .header {
+    padding: 12px 14px;
+  }
+
+  .headerLeft {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    padding: 14px 14px 30px;
+    gap: 12px;
+  }
+
+  .mapCard {
+    aspect-ratio: 4/3;
+  }
+
+  .mapOverlay {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 12px;
+  }
+
+  .mapOverlayHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .mapActions {
+    width: 100%;
+  }
+
+  .mapActions .btn {
+    flex: 1;
+  }
+
+  .kpiRow {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .kpiItem {
+    flex: 1 1 45%;
+  }
+
+  .kpiValue {
+    font-size: 24px;
+  }
+
+  .activityGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fleetGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile Portrait (<480px) */
+@media (max-width: 479px) {
+  .header {
+    padding: 10px 10px;
+  }
+
+  .logo {
+    font-size: 1.125rem;
+  }
+
+  .portalBadge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .userName {
+    font-size: 12px;
+  }
+
+  .userRole {
+    font-size: 10px;
+  }
+
+  .main {
+    padding: 10px 10px 24px;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .cardTitle {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .mapCard {
+    aspect-ratio: 3/2;
+    border-radius: 14px;
+  }
+
+  .mapOverlay {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .mapTitle {
+    font-size: 10px;
+  }
+
+  .mapSubtitle {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .kpiValue {
+    font-size: 22px;
+  }
+
+  .kpiLabel {
+    font-size: 10px;
+  }
+
+  .territoryGrid,
+  .complianceGrid {
+    gap: 8px;
+  }
+
+  .territoryStat,
+  .complianceStat {
+    padding: 8px;
+  }
+
+  .territoryValue,
+  .complianceValue {
+    font-size: 20px;
+  }
+
+  .territoryLabel,
+  .complianceLabel {
+    font-size: 10px;
+  }
+
+  .territoryMap {
+    height: 80px;
+  }
+
+  .progressTrack {
+    height: 10px;
+  }
+
+  .regionItem {
+    margin-bottom: 8px;
+  }
+
+  .regionName,
+  .regionValue {
+    font-size: 11px;
+  }
+
+  .pipelineItem {
+    padding: 6px 0;
+  }
+
+  .pipelineName {
+    font-size: 12px;
+  }
+
+  .pipelineStage,
+  .pipelineDays {
+    font-size: 10px;
+  }
+
+  .leaderItem {
+    padding: 5px 0;
+    gap: 6px;
+  }
+
+  .leaderAvatar {
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
+  }
+
+  .leaderName {
+    font-size: 12px;
+  }
+
+  .leaderScore {
+    font-size: 12px;
+  }
+
+  .activityGrid {
+    gap: 8px;
+  }
+
+  .activityItem {
+    padding: 8px;
+  }
+
+  .activityValue {
+    font-size: 16px;
+  }
+
+  .activityLabel {
+    font-size: 9px;
+  }
+
+  .listItem {
+    padding: 6px 0;
+    gap: 6px;
+  }
+
+  .listIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .listTitle {
+    font-size: 12px;
+  }
+
+  .listSubtitle {
+    font-size: 10px;
+  }
+
+  .listValue {
+    font-size: 12px;
+  }
+
+  .contactItem {
+    padding: 6px 0;
+    gap: 8px;
+  }
+
+  .contactDept {
+    font-size: 12px;
+  }
+
+  .contactName {
+    font-size: 10px;
+  }
+
+  .contactPhone {
+    font-size: 11px;
+  }
+
+  .healthRing {
+    width: 100px;
+    height: 100px;
+  }
+
+  .healthNumber {
+    font-size: 24px;
+  }
+
+  .healthUnit {
+    font-size: 12px;
+  }
+
+  .healthStatus {
+    font-size: 11px;
+  }
+
+  .fleetGrid {
+    gap: 8px;
+  }
+
+  .fleetItem {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .fleetLabel {
+    font-size: 11px;
+  }
+
+  .fleetValue {
+    font-size: 12px;
+  }
+
+  .alertItem {
+    padding: 6px 0;
+    gap: 6px;
+  }
+
+  .alertText {
+    font-size: 12px;
+  }
+
+  .alertTime {
+    font-size: 10px;
+  }
+
+  .pill {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+}
+
+/* Minimum width (320px) */
+@media (max-width: 359px) {
+  .header {
+    padding: 8px 8px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .portalBadge {
+    display: none;
+  }
+
+  .main {
+    padding: 8px 8px 20px;
+    gap: 8px;
+  }
+
+  .card {
+    padding: 10px;
+    border-radius: 14px; /* Source: dispatch-design-system - maintain 14px even on small screens */
+  }
+
+  .cardTitle {
+    font-size: 11px;
+  }
+
+  .kpiRow {
+    gap: 8px;
+  }
+
+  .kpiValue {
+    font-size: 18px;
+  }
+
+  .kpiLabel {
+    font-size: 9px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .mapOverlay {
+    padding: 8px;
+  }
+
+  .mapSubtitle {
+    font-size: 12px;
+  }
+}
+
+/* =============================================================================
+   DEV CARD (Development Only)
+   ============================================================================= */
+
+.devCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px dashed rgba(163, 0, 0, 0.4);
+  background: linear-gradient(to bottom, rgba(163, 0, 0, 0.08), rgba(163, 0, 0, 0.02));
+  transition: all 200ms ease;
+}
+
+.devCard:hover {
+  border-color: #a30000;
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+}
+
+.devCard:focus-visible {
+  outline: 1px solid #a30000;
+  outline-offset: 0;
+}
+
+.devInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.devInfo svg {
+  color: #a30000;
+  flex-shrink: 0;
+}
+
+/* Site Editor Info */
+.siteEditorInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.siteEditorInfo svg {
+  color: #6aa3ff;
+  flex-shrink: 0;
+}
+
+/* Market Sandbox Info */
+.sandboxInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sandboxInfo svg {
+  color: #6aa3ff;
+  flex-shrink: 0;
+}

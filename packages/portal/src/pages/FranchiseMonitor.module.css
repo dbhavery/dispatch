@@ -1,0 +1,538 @@
+/**
+ * Franchise Monitor Page Styles
+ * Dark industrial theme following DESIGN-RULES.md
+ */
+
+/* Page Layout */
+.page {
+  min-height: 100vh;
+  background: #1c1d20;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Search Box */
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--gray-400);
+}
+
+.searchBox:focus-within {
+  border-color: var(--red);
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 0.875rem;
+  width: 200px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--gray-500);
+}
+
+/* Main Layout */
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 14px;
+  padding: 14px 30px 18px;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cards - Dark Theme per design system (NO overlay) */
+.card {
+  background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+  border-radius: var(--radius-card, 14px);
+  border: 1px solid var(--gray-700, #404040);
+  box-shadow: var(--shadow-card, 0 2px 4px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.5));
+  position: relative;
+  overflow: hidden;
+}
+
+.tallCard {
+  composes: card;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: var(--space-4);
+  padding-bottom: 0;
+}
+
+.cardContent {
+  padding: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.tallCard .cardContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Pills */
+.pill {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.pillGray {
+  background: linear-gradient(180deg, #35363c 0%, #1c1d20 100%);
+  color: var(--gray-300);
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  font-family: inherit;
+}
+
+.btnPrimary {
+  background: var(--gradient-red);
+  color: var(--white);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  position: relative;
+}
+
+/* NO ::before overlay per design system */
+
+/* Big Metric */
+.bigMetric {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.bigValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.bigUnit {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-400);
+}
+
+.metricLabel {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-3);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  margin: var(--space-3) 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.statValue.active {
+  color: #00cc00;
+}
+
+.statValue.warning {
+  color: #ffcc00;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* Fleet Row */
+.fleetRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.fleetRow:last-child {
+  border-bottom: none;
+}
+
+.fleetLabel {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+}
+
+.fleetValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Filter Group */
+.filterGroup {
+  margin-bottom: var(--space-3);
+}
+
+.filterGroup:last-child {
+  margin-bottom: 0;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-2);
+}
+
+.filterButtons {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.filterBtn {
+  flex: 1;
+  padding: var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--gray-400);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filterBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.filterBtn.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.sortSelect {
+  width: 100%;
+  padding: var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.sortSelect:focus {
+  outline: 1px solid var(--red);
+  outline-offset: 0;
+  border-color: var(--red);
+}
+
+/* Franchise List */
+.franchiseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.franchiseItem {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  transition: all var(--transition-base);
+}
+
+.franchiseItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.franchiseMain {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.franchiseHealth {
+  flex-shrink: 0;
+}
+
+.healthRing {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.healthGreen {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.3) 0%, rgba(34, 197, 94, 0.1) 100%);
+  border: 2px solid #00cc00;
+}
+
+.healthYellow {
+  background: linear-gradient(180deg, rgba(234, 179, 8, 0.3) 0%, rgba(234, 179, 8, 0.1) 100%);
+  border: 2px solid #ffcc00;
+}
+
+.healthRed {
+  background: linear-gradient(180deg, rgba(255, 85, 0, 0.3) 0%, rgba(255, 85, 0, 0.1) 100%);
+  border: 2px solid #ff5500;
+}
+
+.healthValue {
+  font-size: 0.8125rem;
+}
+
+.franchiseInfo {
+  flex: 1;
+}
+
+.franchiseName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.franchiseOwner {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusBadge.active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #00cc00;
+}
+
+.statusBadge.warning {
+  background: rgba(234, 179, 8, 0.15);
+  color: #ffcc00;
+}
+
+.franchiseMetrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.franchiseMetric {
+  text-align: center;
+}
+
+.franchiseMetric .metricValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  display: block;
+}
+
+.franchiseMetric .metricLabel {
+  font-size: 0.6875rem;
+  color: var(--gray-500);
+  margin-bottom: 0;
+}
+
+.franchiseActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actionBtn {
+  flex: 1;
+  padding: var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--gray-300);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .column {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .headerRight {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .franchiseMetrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

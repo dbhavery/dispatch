@@ -1,0 +1,551 @@
+/**
+ * Dispatch Driver Portal Styles
+ * Dark theme optimized for tablet displays in vehicle
+ * Uses CSS custom properties from tokens.css
+ */
+
+.page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: var(--dp-text-primary);
+  font-family: var(--dp-font-family);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mode Indicator (Demo Controls) */
+.modeIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dp-spacing-md);
+  padding: var(--dp-spacing-md);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modeLabel {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+}
+
+.modeTabs {
+  display: flex;
+  gap: var(--dp-spacing-xs);
+}
+
+.modeTab {
+  padding: 6px 14px;
+  border-radius: var(--dp-radius-pill);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-medium);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--dp-text-muted);
+  cursor: pointer;
+  transition: all var(--dp-transition-fast);
+}
+
+.modeTab:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.modeTabActive {
+  background: var(--dp-gradient-red);
+  border-color: var(--dp-red);
+  color: var(--dp-text-primary);
+}
+
+.modeContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   DASHBOARD MODE
+   ============================================ */
+
+.dashboardMode {
+  padding: var(--dp-spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Clock Section */
+.clockSection {
+  text-align: center;
+  padding: var(--dp-spacing-xl) 0;
+}
+
+.clockBtn {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--dp-spacing-xl) var(--dp-spacing-2xl);
+  border-radius: var(--dp-radius-card);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-2xl);
+  font-weight: var(--dp-font-weight-bold);
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--dp-transition-fast), box-shadow var(--dp-transition-fast);
+}
+
+.clockBtn:active {
+  transform: scale(0.98);
+}
+
+.clockedOut {
+  background: var(--dp-gradient-green);
+  color: #000;
+  box-shadow:
+    0 8px 24px rgba(0, 255, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+
+.clockedIn {
+  background: var(--dp-gradient-yellow);
+  color: #000;
+  box-shadow:
+    0 8px 24px rgba(234, 179, 8, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+
+.clockStatus {
+  margin-top: var(--dp-spacing-md);
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--dp-radius-card);
+  overflow: hidden;
+}
+
+.cardTitle {
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-muted);
+  letter-spacing: 0.05em;
+  padding: var(--dp-spacing-md) var(--dp-spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cardContent {
+  padding: var(--dp-spacing-lg);
+}
+
+/* Route Summary */
+.routeSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--dp-spacing-md);
+  text-align: center;
+}
+
+.routeItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.routeValue {
+  font-size: var(--dp-font-size-4xl);
+  font-weight: var(--dp-font-weight-bold);
+}
+
+.routeLabel {
+  font-size: var(--dp-font-size-2xs);
+  color: var(--dp-text-muted);
+}
+
+/* Status Grid */
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--dp-spacing-md);
+}
+
+.statusItem {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--dp-spacing-sm);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--dp-radius-sm);
+}
+
+.statusLabel {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+}
+
+.statusValue {
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-semibold);
+}
+
+/* Next Stop */
+.nextStop {
+  text-align: center;
+}
+
+.nextStopName {
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-semibold);
+  margin-bottom: var(--dp-spacing-xs);
+}
+
+.nextStopAddress {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+  margin-bottom: var(--dp-spacing-xs);
+}
+
+.nextStopFuel {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-success);
+  font-weight: var(--dp-font-weight-medium);
+  margin-bottom: var(--dp-spacing-lg);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--dp-radius-button);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-base);
+  font-weight: var(--dp-font-weight-semibold);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--dp-transition-fast);
+}
+
+.btnPrimary {
+  background: var(--dp-gradient-red);
+  color: var(--dp-text-primary);
+  box-shadow: var(--dp-shadow-button);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   DRIVER MODE (Full-screen Navigation)
+   ============================================ */
+
+.driverMode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreenMap {
+  flex: 1;
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapContent {
+  text-align: center;
+}
+
+.mapPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dp-spacing-md);
+}
+
+.mapIcon {
+  color: var(--dp-red);
+  opacity: 0.8;
+}
+
+.navText {
+  font-size: var(--dp-font-size-xl);
+  color: var(--dp-text-muted);
+}
+
+.navEta {
+  font-size: var(--dp-font-size-3xl);
+  font-weight: var(--dp-font-weight-bold);
+  color: var(--dp-text-primary);
+}
+
+/* Customer Popup */
+.customerPopup {
+  position: absolute;
+  top: var(--dp-spacing-lg);
+  right: var(--dp-spacing-lg);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--dp-radius-card);
+  padding: var(--dp-spacing-lg);
+  min-width: 220px;
+  backdrop-filter: blur(10px);
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--dp-spacing-sm);
+}
+
+.popupLabel {
+  font-size: var(--dp-font-size-2xs);
+  color: var(--dp-text-muted);
+}
+
+.popupDistance {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-success);
+  font-weight: var(--dp-font-weight-semibold);
+}
+
+.popupName {
+  font-size: var(--dp-font-size-lg);
+  font-weight: var(--dp-font-weight-semibold);
+  margin-bottom: var(--dp-spacing-xs);
+}
+
+.popupFuel {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-warning);
+  margin-bottom: var(--dp-spacing-xs);
+}
+
+.popupAddress {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+}
+
+/* Arrive Button */
+.arriveBtn {
+  position: absolute;
+  bottom: var(--dp-spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--dp-spacing-lg) var(--dp-spacing-3xl);
+  background: var(--dp-gradient-green);
+  color: #000;
+  border: none;
+  border-radius: var(--dp-radius-card);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-bold);
+  cursor: pointer;
+  box-shadow:
+    0 8px 24px rgba(0, 255, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  transition: transform var(--dp-transition-fast);
+}
+
+.arriveBtn:active {
+  transform: translateX(-50%) scale(0.98);
+}
+
+/* ============================================
+   DELIVERY MODE (SOP Enforcement)
+   ============================================ */
+
+.deliveryMode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--dp-spacing-lg);
+  gap: var(--dp-spacing-lg);
+}
+
+.deliveryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--dp-spacing-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.deliveryTitle {
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-semibold);
+}
+
+.deliveryProgress {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+}
+
+/* Checklist */
+.checklistContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-sm);
+  overflow-y: auto;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: var(--dp-spacing-md);
+  padding: var(--dp-spacing-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--dp-radius-md);
+  cursor: pointer;
+  transition: all var(--dp-transition-fast);
+}
+
+.checklistItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.checklistCompleted {
+  background: rgba(0, 255, 0, 0.05);
+  border-color: rgba(0, 255, 0, 0.2);
+}
+
+.checklistNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dp-gradient-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-semibold);
+  flex-shrink: 0;
+}
+
+.checklistCheckbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--dp-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--dp-transition-fast);
+}
+
+.checklistCompleted .checklistCheckbox {
+  background: var(--dp-success);
+  border-color: var(--dp-success);
+}
+
+.checklistCompleted .checklistCheckbox svg {
+  color: #000;
+}
+
+.checklistText {
+  font-size: var(--dp-font-size-base);
+  flex: 1;
+}
+
+.checklistCompleted .checklistText {
+  color: var(--dp-success);
+}
+
+/* Camera Feed */
+.cameraFeed {
+  height: 180px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--dp-radius-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraPlaceholder {
+  text-align: center;
+}
+
+.cameraIcon {
+  color: var(--dp-text-muted);
+  margin-bottom: var(--dp-spacing-sm);
+}
+
+.cameraLabel {
+  font-size: var(--dp-font-size-sm);
+  color: var(--dp-text-muted);
+  margin-bottom: var(--dp-spacing-xs);
+}
+
+.cameraStatus {
+  font-size: var(--dp-font-size-2xs);
+  color: var(--dp-success);
+}
+
+/* Complete Button */
+.completeBtn {
+  padding: var(--dp-spacing-lg) var(--dp-spacing-2xl);
+  border-radius: var(--dp-radius-card);
+  font-family: var(--dp-font-family);
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-bold);
+  border: none;
+  cursor: pointer;
+  transition: all var(--dp-transition-fast);
+}
+
+.completeBtnActive {
+  background: var(--dp-gradient-green);
+  color: #000;
+  box-shadow:
+    0 8px 24px rgba(0, 255, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+
+.completeBtnDisabled {
+  background: var(--dp-gradient-grey);
+  color: var(--dp-text-muted);
+  cursor: not-allowed;
+}
+
+/* Responsive - Tablet Landscape Optimization */
+@media (min-width: 768px) and (orientation: landscape) {
+  .deliveryMode {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .deliveryHeader {
+    width: 100%;
+  }
+
+  .checklistContainer {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .cameraFeed {
+    width: 300px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .completeBtn {
+    width: 100%;
+  }
+}

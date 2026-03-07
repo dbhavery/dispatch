@@ -1,0 +1,833 @@
+/**
+ * Dispatch CSS Design Tokens v2.0
+ * Authoritative Design System
+ * Created: 2026-01-17
+ * Authority: Design Authority
+ * Archived v1: _ARCHIVED_tokens_v1.css
+ *
+ * IMPORTANT: This file defines the complete design token system.
+ * All values are extracted from DESIGN-RULES.md v2.0
+ * DO NOT modify without explicit approval.
+ */
+
+:root {
+  /* ==========================================================================
+     1. BACKGROUND & SURFACE COLORS
+     Background = LIGHTER so cards float on top
+     Cards = DARKER than background (satin finish)
+     Source: dispatch-design-system/src/dispatch-system.css
+     ========================================================================== */
+
+  --dp-bg-page: #1e1f22;           /* Page background - LIGHTER */
+  --dp-bg-outer: #1e1f22;          /* Alias for bg-page */
+  --dp-bg-inner: #1e1f22;          /* Alias for bg-page */
+  --dp-card-top: #1a1a1a;          /* Card gradient top - DARKER */
+  --dp-card-bottom: #121212;       /* Card gradient bottom - DARKEST */
+
+  /* ==========================================================================
+     2. BRAND COLORS
+     Red = ACCENT ONLY, always GLOSSY
+     ========================================================================== */
+
+  --dp-red: #a30000;
+  --dp-red-light: #c51616;
+  --dp-red-dark: #750000;
+
+  /* Legacy aliases (for backward compatibility) */
+  --red: var(--dp-red);
+  --red-bright: var(--dp-red-light);
+  --red-dark: var(--dp-red-dark);
+  --accent: var(--dp-red);
+
+  /* ==========================================================================
+     3. PRODUCT COLORS (Fuel Types)
+     Must be GLOSSY when rendered
+     ========================================================================== */
+
+  /* Fuel colors */
+  --dp-diesel: #00ff00;   /* Pure Green */
+  --dp-regular: #eab308;  /* Yellow */
+  --dp-premium: #ff4500;  /* Orange-Red */
+  --dp-def: #0000ff;      /* Pure Blue */
+
+  /* Legacy aliases */
+  --fuel-diesel: var(--dp-diesel);
+  --fuel-regular: var(--dp-regular);
+  --fuel-premium: var(--dp-premium);
+  --fuel-def: var(--dp-def);
+
+  /* ==========================================================================
+     4. STATUS COLORS
+     Must be saturated, glossy, highly legible
+     ========================================================================== */
+
+  /* Status colors */
+  --dp-success: #00ff00;  /* Pure Green */
+  --dp-warning: #eab308;  /* Yellow */
+  --dp-error: #ff4500;    /* Orange-Red */
+  --dp-info: #0000ff;     /* Pure Blue */
+
+  /* Legacy aliases */
+  --status-success: var(--dp-success);
+  --status-warning: var(--dp-warning);
+  --status-error: var(--dp-error);
+  --status-info: var(--dp-info);
+
+  /* ==========================================================================
+     5. NEUTRAL GRAYS (Satin Blacks)
+     ========================================================================== */
+
+  --dp-gray-50: #fafafa;
+  --dp-gray-100: #f5f5f5;
+  --dp-gray-200: #e5e5e5;
+  --dp-gray-300: #d4d4d4;
+  --dp-gray-400: #a3a3a3;
+  --dp-gray-500: #737373;
+  --dp-gray-600: #525252;
+  --dp-gray-700: #404040;
+  --dp-gray-800: #262626;
+  --dp-gray-850: #1f1f1f;
+  --dp-gray-900: #171717;
+
+  /* Legacy aliases */
+  --gray-50: var(--dp-gray-50);
+  --gray-100: var(--dp-gray-100);
+  --gray-200: var(--dp-gray-200);
+  --gray-300: var(--dp-gray-300);
+  --gray-400: var(--dp-gray-400);
+  --gray-500: var(--dp-gray-500);
+  --gray-600: var(--dp-gray-600);
+  --gray-700: var(--dp-gray-700);
+  --gray-800: var(--dp-gray-800);
+  --gray-850: var(--dp-gray-850);
+  --gray-900: var(--dp-gray-900);
+
+  /* Base colors */
+  --dp-white: #ffffff;
+  --dp-black: #000000;
+  --white: var(--dp-white);
+  --black: var(--dp-black);
+
+  /* ==========================================================================
+     6. TYPOGRAPHY COLORS
+     Dark Theme: white text, muted = near-white
+     Light Theme: dark text, muted = near-dark
+     ========================================================================== */
+
+  /* Dark Theme (default) */
+  --dp-text-primary: #ffffff;
+  --dp-text-secondary: rgba(255, 255, 255, 0.85);
+  --dp-text-muted: rgba(255, 255, 255, 0.6);
+
+  /* Light Theme */
+  --dp-text-primary-light: #171717;
+  --dp-text-secondary-light: rgba(23, 23, 23, 0.85);
+  --dp-text-muted-light: rgba(23, 23, 23, 0.6);
+
+  /* ==========================================================================
+     7. TYPOGRAPHY - Font Family
+     Montserrat ONLY
+     ========================================================================== */
+
+  --dp-font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family: var(--dp-font-family);
+
+  /* ==========================================================================
+     8. TYPOGRAPHY - Font Weights
+     Allowed: 400, 500, 600, 700 ONLY
+     FORBIDDEN: < 400 or > 700
+     ========================================================================== */
+
+  --dp-font-weight-regular: 400;
+  --dp-font-weight-medium: 500;
+  --dp-font-weight-semibold: 600;
+  --dp-font-weight-bold: 700;
+
+  /* Legacy aliases */
+  --font-weight-regular: var(--dp-font-weight-regular);
+  --font-weight-medium: var(--dp-font-weight-medium);
+  --font-weight-semibold: var(--dp-font-weight-semibold);
+  --font-weight-bold: var(--dp-font-weight-bold);
+
+  /* ==========================================================================
+     9. TYPOGRAPHY - Font Sizes
+     Minimum body text: 12px
+     ========================================================================== */
+
+  --dp-font-size-xs: 0.6875rem;   /* 11px - pills only */
+  --dp-font-size-sm: 0.75rem;     /* 12px - muted */
+  --dp-font-size-base: 0.8125rem; /* 13px - body/subheading */
+  --dp-font-size-lg: 0.875rem;    /* 14px - buttons */
+  --dp-font-size-xl: 1rem;        /* 16px - heading */
+  --dp-font-size-2xl: 1.25rem;    /* 20px */
+  --dp-font-size-3xl: 1.5rem;     /* 24px */
+  --dp-font-size-4xl: 2rem;       /* 32px - large numbers */
+
+  /* Legacy aliases */
+  --font-size-xs: var(--dp-font-size-sm);
+  --font-size-sm: var(--dp-font-size-base);
+  --font-size-base: var(--dp-font-size-xl);
+  --font-size-lg: var(--dp-font-size-2xl);
+  --font-size-xl: var(--dp-font-size-3xl);
+  --font-size-2xl: var(--dp-font-size-4xl);
+
+  /* ==========================================================================
+     10. SPACING SCALE
+     ========================================================================== */
+
+  /* Spacing Scale (Source: dispatch-design-system) */
+  --dp-gap: 12px;            /* Primary gap between elements */
+  --dp-spacing-xs: 4px;
+  --dp-spacing-sm: 6px;
+  --dp-spacing-md: 10px;
+  --dp-spacing-lg: 14px;
+  --dp-spacing-xl: 18px;
+  --dp-spacing-2xl: 30px;
+  --dp-spacing-3xl: 45px;
+  --dp-spacing-4xl: 90px;
+
+  /* Legacy aliases (numbered) - matches v1 exactly */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 10px;
+  --space-4: 14px;
+  --space-5: 18px;
+  --space-6: 30px;
+  --space-7: 45px;
+  --space-8: 90px;
+
+  /* ==========================================================================
+     11. BORDER RADIUS (Source: dispatch-design-system)
+     Cards: 14px, Buttons: 8px, Pills: 999px
+     ========================================================================== */
+
+  --dp-radius-sm: 4px;
+  --dp-radius-md: 8px;
+  --dp-radius-button: 8px;   /* v1 value - squared, not pill */
+  --dp-radius-card: 14px;    /* Source: dispatch-design-system */
+  --dp-radius-lg: 20px;
+  --dp-radius-pill: 999px;
+
+  /* Legacy aliases */
+  --radius-sm: var(--dp-radius-sm);
+  --radius-md: var(--dp-radius-md);
+  --radius-lg: var(--dp-radius-lg);
+  --radius-full: var(--dp-radius-pill);
+  --radius-card: var(--dp-radius-card);
+  --radius-button: var(--dp-radius-button);
+  --radius-input: var(--dp-radius-md);
+  --radius-badge: var(--dp-radius-pill);
+  --radius-base: var(--dp-radius-md);  /* Alias for general use */
+
+  /* ==========================================================================
+     12. SHADOWS
+     BLACK ONLY - no colored shadows
+     Cards: strong, Buttons: glossy
+     ========================================================================== */
+
+  /* Card shadows - Source: dispatch-design-system (AUTHORITATIVE) */
+  --dp-shadow-card:
+    0 2px 4px rgba(0,0,0,0.6),
+    0 8px 16px rgba(0,0,0,0.5);
+  --dp-shadow-card-hover:
+    0 4px 8px rgba(0,0,0,0.7),
+    0 16px 32px rgba(0,0,0,0.6);
+
+  /* Legacy heavy shadow (for backward compatibility) */
+  --dp-shadow-strong:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  --dp-shadow-soft:
+    0 10px 25px rgba(0, 0, 0, 0.65),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  /* Button/glossy element shadows (Source: dispatch-design-system) */
+  --dp-shadow-button:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+
+  /* Progress bar track (inset) - Source: dispatch-design-system */
+  --dp-shadow-inset: 0 2px 4px rgba(0, 0, 0, 0.5) inset;
+
+  /* Modal shadow - same as card (large) */
+  --dp-shadow-modal:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  /* Light theme shadows (heavier for visibility) */
+  --dp-shadow-card-light:
+    0 2px 6px rgba(0,0,0,0.18),
+    0 10px 24px rgba(0,0,0,0.15);
+  --dp-shadow-card-hover-light:
+    0 4px 10px rgba(0,0,0,0.22),
+    0 20px 40px rgba(0,0,0,0.2);
+  --dp-shadow-lg-light: 0 2px 4px rgba(0,0,0,0.15);
+
+  /* Legacy aliases */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: var(--dp-shadow-soft);
+  --shadow-lg: var(--dp-shadow-strong);
+  --shadow-xl: var(--dp-shadow-modal);
+  --shadow-card: var(--dp-shadow-card);
+  --shadow-card-hover: var(--dp-shadow-card-hover);
+  --shadow-card-light: var(--dp-shadow-card-light);
+  --shadow-card-hover-light: var(--dp-shadow-card-hover-light);
+  --shadow-lg-light: var(--dp-shadow-lg-light);
+  --shadow-button: var(--dp-shadow-button);
+  --shadow-button-secondary: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-modal: var(--dp-shadow-modal);
+
+  /* Card background gradient variables */
+  --card-top: var(--dp-card-top);
+  --card-bottom: var(--dp-card-bottom);
+
+  /* ==========================================================================
+     13. TRANSITIONS
+     Allowed: 100ms, 200ms, 300ms ONLY
+     FORBIDDEN: 150ms, 250ms, 350ms, 400ms, 500ms+
+     ========================================================================== */
+
+  --dp-transition-fast: 100ms ease;
+  --dp-transition-base: 200ms ease;
+  --dp-transition-slow: 300ms ease;
+
+  /* Legacy aliases */
+  --transition-fast: var(--dp-transition-fast);
+  --transition-base: var(--dp-transition-base);
+  --transition-slow: var(--dp-transition-slow);
+
+  /* ==========================================================================
+     14. FOCUS STATES
+     1px outline, red accent
+     ========================================================================== */
+
+  --dp-focus-ring: 1px solid var(--dp-red);
+  --dp-focus-offset: 0px;
+
+  /* Legacy aliases */
+  --focus-ring: var(--dp-focus-ring);
+  --focus-offset: var(--dp-focus-offset);
+
+  /* ==========================================================================
+     15. GRADIENTS
+     ========================================================================== */
+
+  /* Background gradient - Source: dispatch-design-system */
+  --dp-gradient-bg:
+    radial-gradient(ellipse at 30% 20%, #2a2b2f 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, #252628 0%, transparent 50%),
+    #1e1f22;
+
+  /* Card gradient (satin, darker than background) */
+  --dp-gradient-card: linear-gradient(
+    to bottom,
+    var(--dp-card-top),
+    var(--dp-card-bottom)
+  );
+
+  /* Card top sheen - Source: dispatch-design-system */
+  --dp-gradient-card-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 100%
+  );
+
+  /* Glossy fill gradients - Dark Mode (Source: dispatch-design-system) */
+  --dp-gradient-red: linear-gradient(180deg, var(--dp-red-light) 0%, var(--dp-red-dark) 100%);
+  --dp-gradient-green: linear-gradient(180deg, #88ff88 0%, #44cc44 100%);
+  --dp-gradient-yellow: linear-gradient(180deg, #ffee88 0%, #ddaa33 100%);
+  --dp-gradient-blue: linear-gradient(180deg, #88aaff 0%, #4477dd 100%);
+  --dp-gradient-orange: linear-gradient(180deg, #ff9966 0%, #dd5522 100%);
+  --dp-gradient-grey: linear-gradient(180deg, #35363c 0%, #1a1b1f 100%);
+
+  /* Glossy fill gradients - Light Mode */
+  --dp-gradient-green-light: linear-gradient(180deg, #00bb00 0%, #006600 100%);
+  --dp-gradient-yellow-light: linear-gradient(180deg, #ddaa00 0%, #997700 100%);
+  --dp-gradient-blue-light: linear-gradient(180deg, #0055dd 0%, #002299 100%);
+  --dp-gradient-orange-light: linear-gradient(180deg, #dd4400 0%, #aa2200 100%);
+
+  /* Progress track gradient (Source: dispatch-design-system) */
+  --dp-gradient-track: radial-gradient(ellipse at top, #252628 0%, #0d0e10 100%);
+
+  /* Content divider gradient (inside cards - NO red accent) */
+  --dp-gradient-divider: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0)
+  );
+
+  /* Section separator gradient (between page sections - WITH red accent) */
+  --dp-gradient-section-separator: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 15%,
+    rgba(255, 255, 255, 0.08) 38%,
+    var(--dp-red) 42%,
+    var(--dp-red) 58%,
+    rgba(255, 255, 255, 0.08) 62%,
+    rgba(255, 255, 255, 0.08) 85%,
+    transparent 100%
+  );
+
+  /* Legacy aliases */
+  --gradient-red: var(--dp-gradient-red);
+  --gradient-green: var(--dp-gradient-green);
+
+  /* ==========================================================================
+     16. Z-INDEX SCALE
+     ========================================================================== */
+
+  --dp-z-base: 0;
+  --dp-z-dropdown: 100;
+  --dp-z-sticky: 200;
+  --dp-z-fixed: 300;
+  --dp-z-modal-backdrop: 400;
+  --dp-z-modal: 500;
+  --dp-z-popover: 600;
+  --dp-z-tooltip: 700;
+  --dp-z-toast: 800;
+
+  /* Legacy aliases */
+  --z-base: var(--dp-z-base);
+  --z-dropdown: var(--dp-z-dropdown);
+  --z-sticky: var(--dp-z-sticky);
+  --z-fixed: var(--dp-z-fixed);
+  --z-modal-backdrop: var(--dp-z-modal-backdrop);
+  --z-modal: var(--dp-z-modal);
+  --z-popover: var(--dp-z-popover);
+  --z-tooltip: var(--dp-z-tooltip);
+  --z-toast: var(--dp-z-toast);
+
+  /* ==========================================================================
+     17. SEMANTIC BACKGROUNDS
+     ========================================================================== */
+
+  --dp-bg-success-subtle: rgba(39, 174, 96, 0.2);
+  --dp-bg-warning-subtle: rgba(242, 169, 59, 0.2);
+  --dp-bg-error-subtle: rgba(229, 57, 53, 0.15);
+  --dp-bg-info-subtle: rgba(45, 156, 219, 0.2);
+
+  /* Legacy aliases */
+  --bg-success-subtle: var(--dp-bg-success-subtle);
+  --bg-warning-subtle: var(--dp-bg-warning-subtle);
+  --bg-error-subtle: var(--dp-bg-error-subtle);
+  --bg-info-subtle: var(--dp-bg-info-subtle);
+}
+
+/* =============================================================================
+   GLOBAL BASE STYLES
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--dp-font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--dp-gradient-bg);
+  color: var(--dp-text-primary);
+  min-height: 100vh;
+}
+
+/* =============================================================================
+   FOCUS STYLES - 1px ring, red accent
+   ============================================================================= */
+
+:focus-visible {
+  outline: var(--dp-focus-ring);
+  outline-offset: var(--dp-focus-offset);
+}
+
+/* =============================================================================
+   CARD BASE CLASS
+   ============================================================================= */
+
+.dp-card {
+  position: relative;
+  border-radius: var(--dp-radius-card);
+  background: var(--dp-gradient-card);
+  box-shadow: var(--dp-shadow-strong);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: var(--dp-spacing-lg);
+  color: var(--dp-text-primary);
+  overflow: hidden;
+}
+
+/* Card top sheen - 50% height (Source: dispatch-design-system) */
+.dp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--dp-gradient-card-sheen);
+  pointer-events: none;
+  border-radius: var(--dp-radius-card) var(--dp-radius-card) 0 0;
+}
+
+/* =============================================================================
+   CONTENT DIVIDER (inside cards - NO red accent)
+   ============================================================================= */
+
+.dp-divider {
+  height: 1px;
+  margin: var(--dp-spacing-md) 0;
+  background: var(--dp-gradient-divider);
+}
+
+/* =============================================================================
+   SECTION SEPARATOR (between page sections - WITH red accent)
+   ============================================================================= */
+
+.dp-section-separator {
+  height: 1px;
+  background: var(--dp-gradient-section-separator);
+}
+
+/* =============================================================================
+   GLOSSY UTILITY CLASS
+   For buttons, pills, progress bars, indicators
+   ============================================================================= */
+
+.dp-glossy {
+  position: relative;
+  border-radius: inherit;
+  box-shadow: var(--dp-shadow-button);
+  overflow: hidden;
+}
+
+.dp-glossy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+/* =============================================================================
+   COLOR FILL CLASSES (use with .dp-glossy)
+   ============================================================================= */
+
+.dp-fill-red {
+  background: var(--dp-gradient-red);
+}
+
+.dp-fill-green {
+  background: var(--dp-gradient-green);
+}
+
+.dp-fill-yellow {
+  background: var(--dp-gradient-yellow);
+}
+
+.dp-fill-blue {
+  background: var(--dp-gradient-blue);
+}
+
+.dp-fill-grey {
+  background: var(--dp-gradient-grey);
+}
+
+/* =============================================================================
+   BUTTON BASE
+   ============================================================================= */
+
+.dp-btn {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 18px;
+  border: none;
+  font-family: var(--dp-font-family);
+  font-size: 13px;
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: none;
+  background: transparent;
+  transition: transform var(--dp-transition-fast),
+              box-shadow var(--dp-transition-fast);
+}
+
+.dp-btn:hover {
+  transform: translateY(-1px);
+  outline: 1px solid var(--dp-red);
+  outline-offset: 0;
+}
+
+.dp-btn:focus-visible {
+  outline: 1px solid var(--dp-red);
+  outline-offset: 0;
+}
+
+.dp-btn:active {
+  transform: translateY(0);
+}
+
+/* Outline button variant */
+.dp-btn-outline {
+  border-radius: var(--dp-radius-button);
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--dp-text-secondary);
+  font-family: var(--dp-font-family);
+  font-size: 13px;
+  font-weight: var(--dp-font-weight-semibold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-transform: none;
+  transition: border-color var(--dp-transition-fast),
+              color var(--dp-transition-fast);
+}
+
+.dp-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.40);
+  color: var(--dp-text-primary);
+  outline: 1px solid var(--dp-red);
+  outline-offset: 0;
+}
+
+.dp-btn-outline:focus-visible {
+  outline: 1px solid var(--dp-red);
+  outline-offset: 0;
+}
+
+/* =============================================================================
+   PILL/BADGE BASE
+   ============================================================================= */
+
+.dp-pill {
+  border-radius: var(--dp-radius-pill);
+  font-family: var(--dp-font-family);
+  font-size: 10px;
+  padding: 4px 10px;
+  font-weight: var(--dp-font-weight-semibold);
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dp-text-primary);
+}
+
+/* =============================================================================
+   PROGRESS BAR
+   ============================================================================= */
+
+.dp-progress-track {
+  height: 10px;
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-gradient-track);
+  box-shadow: var(--dp-shadow-inset);
+  overflow: hidden;
+}
+
+.dp-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset;
+}
+
+.dp-progress-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+/* Fuel type progress fills - Dark Mode (lightened) */
+.dp-progress-fill-diesel { background: linear-gradient(90deg, #88ff88 0%, #44cc44 100%); }
+.dp-progress-fill-regular { background: linear-gradient(90deg, #ffee88 0%, #ddaa33 100%); }
+.dp-progress-fill-premium { background: linear-gradient(90deg, #ff9966 0%, #dd5522 100%); }
+.dp-progress-fill-def { background: linear-gradient(90deg, #88aaff 0%, #4477dd 100%); }
+
+/* =============================================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================================= */
+
+.dp-text-heading {
+  font-size: var(--dp-font-size-xl);
+  font-weight: var(--dp-font-weight-semibold);
+  color: var(--dp-text-primary);
+}
+
+.dp-text-subheading {
+  font-size: var(--dp-font-size-base);
+  font-weight: var(--dp-font-weight-medium);
+  color: var(--dp-text-secondary);
+}
+
+.dp-text-body {
+  font-size: var(--dp-font-size-base);
+  font-weight: var(--dp-font-weight-regular);
+  color: var(--dp-text-secondary);
+}
+
+.dp-text-muted {
+  font-size: var(--dp-font-size-sm);
+  font-weight: var(--dp-font-weight-regular);
+  color: var(--dp-text-muted);
+}
+
+/* =============================================================================
+   MAP CARD
+   ============================================================================= */
+
+.dp-card-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-md);
+  min-height: 320px;
+  aspect-ratio: 16 / 9;
+}
+
+.dp-map-surface {
+  flex: 1;
+  border-radius: calc(var(--dp-radius-card) - 8px);
+  /* Source: dispatch-design-system */
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(135deg, #b8bcc4 0%, #a0a4ac 100%);
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* =============================================================================
+   3-COLUMN LAYOUT
+   ============================================================================= */
+
+.dp-page {
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--dp-spacing-lg) var(--dp-spacing-xl) var(--dp-spacing-xl);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+}
+
+.dp-main-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px minmax(520px, 1fr) 320px;
+  column-gap: var(--dp-spacing-lg);
+  row-gap: var(--dp-spacing-lg);
+  align-items: start;
+}
+
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS (v1 hybrid)
+   Desktop 16:9 is default, but support tablet/mobile where needed
+   ============================================================================= */
+
+/* Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+  .dp-main-grid {
+    grid-template-columns: 320px minmax(600px, 1fr) 360px;
+  }
+}
+
+/* Tablet Landscape (1024px - 1439px) */
+@media (max-width: 1439px) {
+  .dp-main-grid {
+    grid-template-columns: 240px minmax(400px, 1fr) 280px;
+    column-gap: var(--dp-spacing-md);
+    row-gap: var(--dp-spacing-md);
+  }
+
+  .dp-page {
+    padding: var(--dp-spacing-md) var(--dp-spacing-lg);
+  }
+}
+
+/* Tablet Portrait / Small screens (768px - 1023px) */
+@media (max-width: 1023px) {
+  .dp-main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dp-column:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 767px) {
+  .dp-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-page {
+    padding: var(--dp-spacing-sm) var(--dp-spacing-md);
+  }
+}
+
+.dp-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dp-spacing-lg);
+}
+
+/* =============================================================================
+   SCROLLBAR STYLES (Dark Theme)
+   ============================================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dp-gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dp-gray-700);
+  border-radius: var(--dp-radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dp-gray-600);
+}
+
+/* =============================================================================
+   UTILITY: Screen Reader Only
+   ============================================================================= */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,91 @@
+/**
+ * HQ Portal Layout - DESIGN-RULES.md Compliant
+ * Section 2.1: NO COLORED BACKGROUNDS - EVER
+ * Header uses gray background, NOT red
+ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1c1d20;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  background: var(--gray-850);
+  border-bottom: 1px solid var(--gray-800);
+  color: var(--white);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logoImg {
+  height: 40px;
+  width: auto;
+}
+
+.portalName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-400);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--gray-700);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.userName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-300);
+}
+
+.logoutBtn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--gray-800);
+  border: 1px solid var(--gray-700);
+  border-radius: var(--radius-md);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: none; /* NO ALL CAPS */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-base);
+}
+
+.logoutBtn:hover {
+  border-color: var(--gray-600);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.logoutBtn:focus-visible {
+  outline: 1px solid var(--accent, var(--red));
+  outline-offset: 0;
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #1c1d20;
+}

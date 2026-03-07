@@ -1,0 +1,87 @@
+/**
+ * Dispatch Auth Portal - Global Styles
+ * Design Authority: dispatch-design-system/src/dispatch-system.css
+ *
+ * Tokens imported from shared design system - DO NOT define tokens here
+ */
+
+/* Import design system tokens from shared */
+@import '../shared/src/tokens/tokens.css';
+
+/* Auth-specific semantic aliases (maps to design system tokens) */
+:root {
+  /* Background aliases */
+  --page-bg: var(--gray-850);
+  --card-top: #181818;
+  --card-bottom: #141414;
+  --card-border: rgba(255, 255, 255, 0.04);
+
+  /* Brand color aliases */
+  --red-primary: var(--red);
+  --red-light: var(--red-bright);
+  --red-dark: var(--red-dark);
+
+  /* Text aliases */
+  --text-primary: var(--white);
+  --text-secondary: var(--gray-400);
+  --text-muted: var(--gray-500);
+
+  /* Spacing aliases */
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-3);
+  --space-lg: var(--space-4);
+  --space-xl: var(--space-5);
+  --space-2xl: var(--space-6);
+  --space-3xl: var(--space-7);
+  --space-4xl: var(--space-8);
+
+  /* Border radius aliases */
+  --radius-button: var(--radius-md);
+  --radius-pill: var(--radius-full);
+
+  /* Shadow aliases */
+  --shadow-glossy:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background:
+    radial-gradient(ellipse at 30% 20%, #222326 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, #202124 0%, transparent 50%),
+    var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus States */
+*:focus-visible {
+  outline: 1px solid var(--red-primary);
+  outline-offset: 0;
+}
+
+/* Links */
+a {
+  color: var(--red-bright);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--text-primary);
+}

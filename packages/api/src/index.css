@@ -1,0 +1,116 @@
+/**
+ * Dispatch Global Styles
+ * Single source of truth: ./design/tokens.css + ./design/components.css
+ * Version: 4.0 | Updated: 2026-01-21
+ * Authority: Design Authority
+ *
+ * IMPORTANT: All design tokens and component classes are imported from
+ * the authoritative design system files. DO NOT add custom tokens here.
+ */
+
+/* Import authoritative design system */
+@import './design/tokens.css';
+@import './design/components.css';
+
+/* =============================================================================
+   GLOBAL STYLES
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--gray-900);
+  color: var(--white);
+}
+
+#root {
+  height: 100%;
+}
+
+/* =============================================================================
+   LINKS
+   DESIGN-RULES: Links use white (not red) - underline for affordance
+   Red text is BANNED for non-critical content per Section 2.1
+   ============================================================================= */
+
+a {
+  color: var(--white);
+  text-decoration: underline;
+  transition: color var(--transition-fast, 100ms ease);
+}
+
+a:hover {
+  color: var(--gray-300);
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* =============================================================================
+   FOCUS STYLES - 1px ring ONLY
+   ============================================================================= */
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* =============================================================================
+   SCROLLBAR STYLES
+   ============================================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-700);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-600);
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

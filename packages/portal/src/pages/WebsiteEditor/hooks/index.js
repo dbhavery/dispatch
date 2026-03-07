@@ -1,0 +1,1 @@
+export { usePageEditor } from './usePageEditor';
