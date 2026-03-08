@@ -31,6 +31,10 @@ jobs:
         working-directory: packages/${{ matrix.package }}
         run: npm run lint --if-present
 
+      - name: Test
+        working-directory: packages/${{ matrix.package }}
+        run: npm test -- --run --if-present
+
       - name: Build
         working-directory: packages/${{ matrix.package }}
         run: npm run build

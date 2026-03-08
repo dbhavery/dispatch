@@ -1,0 +1,11 @@
+{
+  "name": "dispatch-monorepo",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:portal && npm run test:auth && npm run test:design-system",
+    "test:portal": "cd packages/portal && npx vitest run",
+    "test:auth": "cd packages/auth && npx vitest run",
+    "test:design-system": "cd packages/design-system && npx vitest run",
+    "test:coverage": "npm run test:portal -- --coverage && npm run test:auth -- --coverage && npm run test:design-system -- --coverage"
+  }
+}
