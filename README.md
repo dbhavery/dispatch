@@ -1,5 +1,7 @@
 # Dispatch
 
+[![CI](https://github.com/dbhavery/dispatch/actions/workflows/ci.yml/badge.svg)](https://github.com/dbhavery/dispatch/actions/workflows/ci.yml)
+
 **A multi-tenant fleet management SaaS platform with real-time dispatch, route optimization, franchise management, and role-based portals.**
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
